@@ -16,7 +16,7 @@ An ASP.NET 9 MVC web application that allows users to upload invoice files (PDFs
 ## 🚀 Features
 
 - Upload invoice images (JPG, PNG, PDF)
-- OCR extraction using Tesseract
+- OCR extraction using [Tesseract](https://github.com/tesseract-ocr/tesseract.git)
 - Multilingual support (Arabic + English)
 - Save extracted data to a SQL Server database
 - View list of invoices in a dashboard
