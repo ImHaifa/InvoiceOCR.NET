@@ -1,0 +1,48 @@
+﻿@model IEnumerable<InvoiceApp2.Models.Invoice>
+
+@{
+    ViewData["Title"] = "List of Invoices";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="ClearAll" method="post" onsubmit="return confirm('Are you sure you want to delete all invoices?');">
+    <button type="submit" class="btn btn-danger">Delete All Invoices</button>
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Invoice #</th>
+            <th>File Name</th>
+            <th>Vendor</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>File</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var invoice in Model)
+        {
+            <tr>
+                <td>@invoice.InvoiceNumber</td>
+                <td>@invoice.FileName</td>
+                <td>@invoice.Vendor</td>
+                <td>@invoice.Amount</td>
+                <td>@invoice.Date.ToShortDateString()</td>
+                <td>@invoice.Status</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(invoice.FilePath))
+                    {
+                        <a href="@Url.Content(invoice.FilePath)" target="_blank">View</a>
+                    }
+                    else
+                    {
+                        <span>No file</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

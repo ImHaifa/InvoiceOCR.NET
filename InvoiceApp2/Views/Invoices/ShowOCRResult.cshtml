@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "OCR Results";
+    var email = TempData["Email"] as string;
+    var extractedText = TempData["ExtractedText"] as string;
+}
+<div class="text-center">
+    <h1 class="display-4">Thanks for Using Our OCR Service</h1>
+</div>
+
+<h2>OCR Result</h2>
+
+<pre>@extractedText</pre>
